@@ -1,9 +1,11 @@
 import { motion } from "framer-motion";
-import { FaReact, FaNodeJs, FaDatabase, FaCloud, FaMobileAlt, FaClock, FaProjectDiagram, FaQuestionCircle, FaLightbulb } from "react-icons/fa";
-import { SiTailwindcss } from "react-icons/si";
+import { FaReact, FaNodeJs, FaDatabase, FaCloud, FaMobileAlt, FaClock, FaProjectDiagram, FaQuestionCircle, FaLightbulb, FaJava } from "react-icons/fa";
+import { SiTailwindcss, SiMongodb, SiExpress, SiReact } from "react-icons/si";
 
 const SKILLS = [
+  // Frontend
   {
+    category: "Frontend",
     name: "React",
     desc: "Building dynamic and responsive web applications with reusable components.",
     what: "React is a JavaScript library for building interactive user interfaces efficiently.",
@@ -13,15 +15,7 @@ const SKILLS = [
     icon: <FaReact className="text-blue-500 w-6 h-6" />,
   },
   {
-    name: "Node.js",
-    desc: "Creating server-side apps, REST APIs, and backend logic efficiently.",
-    what: "Node.js is a JavaScript runtime that allows running JS code on the server.",
-    why: "It enables building fast, scalable backend services using a single language (JavaScript) across frontend and backend.",
-    experience: "3 years",
-    projects: 10,
-    icon: <FaNodeJs className="text-green-600 w-6 h-6" />,
-  },
-  {
+    category: "Frontend",
     name: "Tailwind CSS",
     desc: "Designing clean, responsive, and modern UIs quickly using utility-first styling.",
     what: "Tailwind CSS is a utility-first CSS framework for rapid UI development.",
@@ -31,6 +25,62 @@ const SKILLS = [
     icon: <SiTailwindcss className="text-teal-500 w-6 h-6" />,
   },
   {
+  category: "UI/UX Design",
+  name: "UI/UX Design",
+  desc: "Designing intuitive user interfaces and crafting seamless user experiences.",
+  what: "UI/UX design focuses on creating visually appealing interfaces and ensuring users can navigate products effortlessly.",
+  why: "Good UI/UX increases user engagement, reduces friction, and drives customer satisfaction and retention.",
+  experience: "4 years",
+  projects: 12,
+  icon: <FaLightbulb className="text-pink-500 w-6 h-6" />,
+},
+
+
+  // Backend
+  {
+    category: "Backend",
+    name: "Node.js",
+    desc: "Creating server-side apps, REST APIs, and backend logic efficiently.",
+    what: "Node.js is a JavaScript runtime that allows running JS code on the server.",
+    why: "It enables building fast, scalable backend services using a single language (JavaScript) across frontend and backend.",
+    experience: "3 years",
+    projects: 10,
+    icon: <FaNodeJs className="text-green-600 w-6 h-6" />,
+  },
+  {
+    category: "Backend",
+    name: "Express.js",
+    desc: "Building RESTful APIs and server-side web applications.",
+    what: "Express.js is a Node.js framework for building robust server-side apps.",
+    why: "It simplifies routing, middleware, and API development, making backend development faster.",
+    experience: "2.5 years",
+    projects: 8,
+    icon: <SiExpress className="text-gray-800 w-6 h-6" />,
+  },
+  {
+    category: "Backend",
+    name: "Java",
+    desc: "Developing enterprise-grade applications with robust architecture.",
+    what: "Java is a high-level, class-based programming language widely used in software development.",
+    why: "It is platform-independent, object-oriented, and suitable for backend, desktop, and Android applications.",
+    experience: "4 years",
+    projects: 9,
+    icon: <FaJava className="text-red-500 w-6 h-6" />,
+  },
+
+  // Mobile
+  {
+    category: "Mobile",
+    name: "React Native",
+    desc: "Developing cross-platform mobile applications with native performance.",
+    what: "React Native lets you build mobile apps using JavaScript and React.",
+    why: "Write once, deploy to both iOS and Android, with access to native device features.",
+    experience: "2 years",
+    projects: 6,
+    icon: <SiReact className="text-cyan-500 w-6 h-6" />,
+  },
+  {
+    category: "Mobile",
     name: "Flutter",
     desc: "Developing cross-platform mobile apps with smooth UI and animations.",
     what: "Flutter is Google’s UI toolkit for building natively compiled apps for mobile, web, and desktop from a single codebase.",
@@ -39,7 +89,20 @@ const SKILLS = [
     projects: 5,
     icon: <FaMobileAlt className="text-indigo-500 w-6 h-6" />,
   },
+
+  // Database
   {
+    category: "Database",
+    name: "MongoDB",
+    desc: "Storing and managing unstructured data with a flexible NoSQL database.",
+    what: "MongoDB is a document-oriented NoSQL database.",
+    why: "It allows scalable storage, flexible schema design, and easy integration with Node.js applications.",
+    experience: "2.5 years",
+    projects: 7,
+    icon: <SiMongodb className="text-green-700 w-6 h-6" />,
+  },
+  {
+    category: "Database",
     name: "MySQL/Postgres",
     desc: "Designing databases, writing queries, and optimizing performance.",
     what: "These are relational database management systems used to store and manage structured data.",
@@ -48,7 +111,10 @@ const SKILLS = [
     projects: 8,
     icon: <FaDatabase className="text-orange-500 w-6 h-6" />,
   },
+
+  // DevOps / Cloud
   {
+    category: "Cloud",
     name: "AWS/Cloud",
     desc: "Deploying applications and managing cloud infrastructure.",
     what: "AWS (Amazon Web Services) provides cloud computing services for hosting, storage, and server management.",
@@ -57,6 +123,16 @@ const SKILLS = [
     projects: 6,
     icon: <FaCloud className="text-purple-500 w-6 h-6" />,
   },
+  {
+  category: "Hosting & Cloud",
+  name: "Hostinger",
+  desc: "Managing web hosting, deploying websites, and configuring server settings.",
+  what: "Hostinger is a web hosting platform that provides shared hosting, VPS, and cloud hosting solutions for websites and applications.",
+  why: "Reliable hosting ensures websites are fast, secure, and accessible, which is essential for business growth and user experience.",
+  experience: "2 years",
+  projects: 15,
+  icon: <FaCloud className="text-blue-500 w-6 h-6" />,
+},
 ];
 
 export default function Skills() {
@@ -76,6 +152,11 @@ export default function Skills() {
             viewport={{ once: true }}
             transition={{ duration: 0.6, delay: i * 0.1 }}
           >
+            {/* Category Badge */}
+            <span className="inline-block bg-indigo-100 text-indigo-800 text-xs font-semibold px-3 py-1 rounded-full mb-2">
+              {s.category}
+            </span>
+
             {/* Header: Icon + Name */}
             <div className="flex items-center gap-3 mb-4">
               <motion.div

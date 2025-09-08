@@ -9,6 +9,7 @@ import Projects from "./pages/Projects";
 import Skills from "./pages/Skills";
 import Team from "./pages/Team";
 import Contact from "./pages/Contact";
+import ProjectDetail from "./pages/ProjectDetails";
 
 const pageVariants = {
   initial: { opacity: 0, y: 12 },
@@ -39,6 +40,7 @@ export default function App() {
           <Route path="/" element={<Page><Home /></Page>} />
           <Route path="/about" element={<Page><About /></Page>} />
           <Route path="/projects" element={<Page><Projects /></Page>} />
+          <Route path="/projects/:id" element={<Page><ProjectDetail /></Page>} />
           <Route path="/skills" element={<Page><Skills /></Page>} />
           <Route path="/team" element={<Page><Team /></Page>} />
           <Route path="/contact" element={<Page><Contact /></Page>} />

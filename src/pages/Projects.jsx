@@ -5,9 +5,9 @@ import { useNavigate } from "react-router-dom";
 const PROJECTS = [
   { id: 1, title: "Fawtech Website", type: "Website", img: "/images/p1.jpg", desc: "Corporate site with animations." },
   { id: 2, title: "Order Manager", type: "Application", img: "/images/p2.jpg", desc: "Internal tool for ops." },
-  { id: 3, title: "Billing Engine", type: "Software", img: "/images/p3.jpg", desc: "High‑volume invoicing." },
+  { id: 3, title: "Gaman Builder", type: "Software", img: "/images/p3.jpg", desc: "High‑volume invoicing." },
   { id: 4, title: "Shahu Mumbai", type: "Website", img: "/images/p4.jpg", desc: "E‑commerce Full-fledge Website." },
-  { id: 5, title: "Field App", type: "Application", img: "/images/p5.jpg", desc: "Android/iOS Flutter app." },
+  { id: 5, title: "Harmony Hub", type: "Website", img: "/images/p5.jpg", desc: "Android/iOS Flutter app." },
   { id: 6, title: "Data Sync", type: "Software", img: "/images/p6.jpg", desc: "ETL & reporting service." },
 ];
 

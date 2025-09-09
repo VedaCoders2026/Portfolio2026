@@ -144,7 +144,6 @@ export default function Home() {
       <div className="bg-white border-t py-20">
         <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
           <Counter target={20} label="Projects Delivered" />
-          <Counter target={20} label="Happy Clients" />
           <Counter target={5} label="Team Members" />
           <Counter target={2} label="Years of Experience" />
         </div>

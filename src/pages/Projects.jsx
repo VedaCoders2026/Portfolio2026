@@ -6,10 +6,10 @@ const PROJECTS = [
   // 4Lo.ops Projects
   {
     id: 1,
-    title: "Fawtech Website",
+    title: "Fawtech Technologies",
     type: "Website",
-    img: "/images/p1.jpg",
-    desc: "Corporate site with animations.",
+    img: "../Assets/ProjectCardImages/Fawtech.png",
+    desc: "Showcasing Fawtech Technologies with a sleek corporate design and smooth animations.",
   },
   {
     id: 2,

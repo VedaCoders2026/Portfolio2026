@@ -1,7 +1,9 @@
+// server.js
 require('dotenv').config();
 const express = require('express');
 const cloudinary = require('cloudinary').v2;
 const uploadRoutes = require('./routes/uploadRoutes');
+const projectRoutes = require('./routes/projectRoutes');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -18,6 +20,7 @@ app.use(express.json());
 
 // Routes
 app.use('/api', uploadRoutes);
+app.use('/api', projectRoutes);
 
 // Start server
 app.listen(port, () => {

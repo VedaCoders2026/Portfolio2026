@@ -2,7 +2,6 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-import NewsletterPopup from "./components/NewsletterPopup";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Projects from "./pages/Projects";
@@ -47,8 +46,7 @@ export default function App() {
         </Routes>
       </AnimatePresence>
       <Footer />
-      {/* Remove if you don’t want the optional popup */}
-      <NewsletterPopup />
+
     </div>
   );
 }

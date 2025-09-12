@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Contact() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [purpose, setPurpose] = useState(""); // track purpose for thank-you msg
 
   const submit = (e) => {
     e.preventDefault();
@@ -17,6 +18,7 @@ export default function Contact() {
       msgs.push({ ...entry, ts: new Date().toISOString() });
       localStorage.setItem("messages", JSON.stringify(msgs));
 
+      setPurpose(entry.purpose); // store purpose for thank-you message
       setSent(true);
       e.currentTarget.reset();
 
@@ -40,6 +42,7 @@ export default function Contact() {
         onSubmit={submit}
         className="mt-8 grid md:grid-cols-2 gap-6 bg-white border rounded-2xl p-6 shadow-soft"
       >
+        {/* Name */}
         <div className="flex flex-col gap-2">
           <label className="text-sm">Name</label>
           <input
@@ -48,6 +51,8 @@ export default function Contact() {
             className="rounded-lg border px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500"
           />
         </div>
+
+        {/* Email */}
         <div className="flex flex-col gap-2">
           <label className="text-sm">Email</label>
           <input
@@ -57,6 +62,40 @@ export default function Contact() {
             className="rounded-lg border px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500"
           />
         </div>
+
+        {/* Mobile Number */}
+        <div className="flex flex-col gap-2">
+          <label className="text-sm">Mobile Number</label>
+          <input
+            type="tel"
+            name="mobile"
+            required
+            pattern="[0-9]{10}"
+            placeholder="e.g. 9876543210"
+            className="rounded-lg border px-3 py-2 outline-none focus:ring-2 focus:ring-indigo-500"
+          />
+        </div>
+
+        {/* Purpose Dropdown */}
+        <div className="flex flex-col gap-2">
+          <label className="text-sm font-medium">Purpose of Message</label>
+          <div className="relative">
+            <select
+              name="purpose"
+              required
+              className="appearance-none w-full rounded-lg border px-3 py-2 pr-10 outline-none 
+                 focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 
+                 bg-white shadow-sm text-slate-700"
+            >
+              <option value="">Select Purpose</option>
+              <option value="Inquiry">Inquiry</option>
+              <option value="Making Website">Making Website</option>
+              <option value="Application">Application</option>
+              <option value="Software">Software</option>
+            </select>
+          </div>
+        </div>
+        {/* Message */}
         <div className="md:col-span-2 flex flex-col gap-2">
           <label className="text-sm">Message</label>
           <textarea
@@ -67,6 +106,7 @@ export default function Contact() {
           />
         </div>
 
+        {/* Submit */}
         <motion.button
           whileTap={{ scale: 0.98 }}
           whileHover={{ scale: 1.01 }}
@@ -79,6 +119,7 @@ export default function Contact() {
           {loading ? "Sending..." : "Send Message"}
         </motion.button>
 
+        {/* Success message */}
         <AnimatePresence>
           {sent && (
             <motion.div
@@ -87,7 +128,9 @@ export default function Contact() {
               exit={{ opacity: 0, y: -5 }}
               className="md:col-span-2 text-green-600 text-sm"
             >
-              Thanks! We received your message.
+              {purpose
+                ? `Thanks! We received your ${purpose} message.`
+                : "Thanks! We received your message."}
             </motion.div>
           )}
         </AnimatePresence>

@@ -1,141 +1,44 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-
-const PROJECTS = [
-  // 4Lo.ops Projects
-  {
-    id: 1,
-    title: "Fawtech Technologies",
-    type: "Website",
-    img: "../Assets/ProjectCardImages/Fawtech.png",
-    desc: "Showcasing Fawtech Technologies with a sleek corporate design and smooth animations.",
-  },
-  {
-    id: 2,
-    title: "Shahu Mumbai",
-    type: "Website",
-    img: "/images/p4.jpg",
-    desc: "Full-fledged e-commerce website.",
-  },
-
-  // Arjun's Projects
-  {
-    id: 3,
-    title: "Harmony Hub",
-    type: "Website",
-    img: "../Assets/ProjectCardImages/HarmonyHub.png",
-    desc: "Cross-platform music and community app.",
-  },
-  {
-    id: 4,
-    title: "Football Track Management",
-    type: "Software",
-    img: "../Assets/ProjectCardImages/FootballTrack.png",
-    desc: "System to manage football matches, teams, and schedules.",
-  },
-  {
-    id: 5,
-    title: "Task Manager",
-    type: "Website",
-    img: "/images/p2.jpg",
-    desc: "AI-powered task and productivity analytics platform.",
-  },
-
-  // Aman's Projects
-  {
-    id: 6,
-    title: "Super Market",
-    type: "Software",
-    img: "/images/p7.jpg",
-    desc: "Retail supermarket management application.",
-  },
-  {
-    id: 7,
-    title: "Flight Booking",
-    type: "Website",
-    img: "/images/p8.jpg",
-    desc: "Online flight ticket booking and reservation system.",
-  },
-  {
-    id: 8,
-    title: "Soul TV",
-    type: "Website",
-    img: "/images/p9.jpg",
-    desc: "Anime streaming and discovery website.",
-  },
-
-  // Dilip's Projects
-  {
-    id: 9,
-    title: "Gaman Builder",
-    type: "Website",
-    img: "../Assets/ProjectCardImages/GamanBuilder.png",
-    desc: "A property selling website where customers can explore homes, view details, and connect with Gaman Builder for their dream property.",
-  },
-  {
-    id: 10,
-    title: "SDmusic Player",
-    type: "Website",
-    img: "../Assets/ProjectCardImages/SdPlayer.jpg",
-    desc: "Cross-platform music streaming player.",
-  },
-  {
-    id: 11,
-    title: "Clothing Shop",
-    type: "Sorftware",
-    img: "../Assets/ProjectCardImages/ClothingShop.png",
-    desc: "Fashion e-commerce shopping Sorftware for E-Commerce Shops.",
-  },
-
-  // Riken's Projects
-  {
-    id: 12,
-    title: "Mudra Finance",
-    type: "Website",
-    img: "/images/p12.jpg",
-    desc: "Financial services and loan management portal.",
-  },
-  {
-    id: 13,
-    title: "Hotwheels",
-    type: "Website",
-    img: "/images/p13.jpg",
-    desc: "Car rental and booking application.",
-  },
-  {
-    id: 14,
-    title: "Clinic Management",
-    type: "Software",
-    img: "/images/p14.jpg",
-    desc: "System to manage doctors, patients, and appointments.",
-  },
-
-  // ..................... Other Projects.................................
-  {
-    id: 15,
-    title: "Gym Trainer",
-    type: "Website",
-    img: "../Assets/ProjectCardImages/GymTrainer.png",
-    desc: "Fitness training and personal coaching website.",
-  },
-  {
-    id: 16,
-    title: "Nature Trails",
-    type: "Website",
-    img: "../Assets/ProjectCardImages/NatureTrails.png",
-    desc: "Explore beautiful trails, join events, and connect with new friends in nature.",
-  },
-];
+import api from "../supabase/axios";
 
 const TYPES = ["All", "Website", "Application", "Software"];
 
 export default function Projects() {
   const [filter, setFilter] = useState("All");
-  const list = useMemo(
+  const [projects, setProjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+  const [page, setPage] = useState(1);
+  const [total, setTotal] = useState(0);
+  const limit = 10; // Matches API limit
+
+  // Fetch projects from API
+  useEffect(() => {
+    const fetchProjects = async () => {
+      try {
+        setLoading(true);
+        const response = await api.get(`/api/projects?page=${page}&limit=${limit}`);
+        const { data, total } = await response.data;
+        setProjects(data);
+        setTotal(total);
+        setError(null);
+      } catch (err) {
+        setError(err.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProjects();
+  }, [page]);
+
+  // Filter projects based on type
+  const filteredProjects = useMemo(
     () =>
-      filter === "All" ? PROJECTS : PROJECTS.filter((p) => p.type === filter),
-    [filter]
+      filter === "All" ? projects : projects.filter((p) => p.type === filter),
+    [filter, projects]
   );
 
   return (
@@ -162,18 +65,48 @@ export default function Projects() {
         </div>
       </div>
 
+      {loading && <p className="text-center mt-10">Loading projects...</p>}
+      {error && (
+        <p className="text-center mt-10 text-red-500">Error: {error}</p>
+      )}
+      {!loading && !error && filteredProjects.length === 0 && (
+        <p className="text-center mt-10">No projects found.</p>
+      )}
+
       <motion.div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
         <AnimatePresence>
-          {list.map((p) => (
+          {filteredProjects.map((p) => (
             <ProjectCard key={p.id} project={p} />
           ))}
         </AnimatePresence>
       </motion.div>
+
+      {/* Pagination Controls */}
+      {!loading && !error && total > limit && (
+        <div className="flex justify-center gap-4 mt-8">
+          <button
+            onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
+            disabled={page === 1}
+            className="px-4 py-2 bg-slate-900 text-white rounded-full disabled:opacity-50"
+          >
+            Previous
+          </button>
+          <span className="self-center">
+            Page {page} of {Math.ceil(total / limit)}
+          </span>
+          <button
+            onClick={() => setPage((prev) => prev + 1)}
+            disabled={page * limit >= total}
+            className="px-4 py-2 bg-slate-900 text-white rounded-full disabled:opacity-50"
+          >
+            Next
+          </button>
+        </div>
+      )}
     </section>
   );
 }
 
-// Individual Card with lighter animation
 function ProjectCard({ project }) {
   const navigate = useNavigate();
 
@@ -189,7 +122,7 @@ function ProjectCard({ project }) {
     >
       <div className="relative h-52 overflow-hidden">
         <img
-          src={project.img}
+          src={project.hero_img || "/images/placeholder.jpg"} // Use hero_img from API
           alt={project.title}
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
         />
@@ -199,7 +132,7 @@ function ProjectCard({ project }) {
             {project.type}
           </div>
           <h3 className="font-semibold text-lg mt-1">{project.title}</h3>
-          <p className="text-sm mt-1 text-gray-200">{project.desc}</p>
+          <p className="text-sm mt-1 text-gray-200">{project.short_desc}</p>
         </div>
       </div>
     </motion.article>

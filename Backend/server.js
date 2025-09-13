@@ -4,6 +4,7 @@ const express = require('express');
 const cloudinary = require('cloudinary').v2;
 const uploadRoutes = require('./routes/uploadRoutes');
 const projectRoutes = require('./routes/projectRoutes');
+const cors = require('cors');
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -17,6 +18,13 @@ cloudinary.config({
 
 // Middleware
 app.use(express.json());
+
+app.use(
+  cors({
+    origin: process.env.REACT_APP_API_BASE_URL, // e.g. http://localhost:3000
+    credentials: true,
+  })
+);
 
 // Routes
 app.use('/api', uploadRoutes);

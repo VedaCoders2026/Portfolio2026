@@ -1,18 +1,42 @@
 import { motion } from "framer-motion";
-import { FiZap, FiCheckCircle, FiUsers, FiTrendingUp } from "react-icons/fi";
+
+// Inline SVG icons to replace the external react-icons library
+const innovationIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M13 2L3 14h9l-1 8L22 10h-9z" />
+  </svg>
+);
+
+const reliabilityIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M22 11.08V12a10 10 0 1 1-5.93-8.87" />
+    <path d="M12 2v10" />
+    <polyline points="22 4 12 14 12 4" />
+  </svg>
+);
+
+const collaborationIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <path d="M17 19.22H5V5.72" />
+    <path d="M12 12l2 2 4-4" />
+    <path d="M19 5.72v13.5h-2.5" />
+    <path d="M10 12l2 2 4-4" />
+  </svg>
+);
+
+const scalabilityIcon = (
+  <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="16 18 22 12 16 6" />
+    <polyline points="8 6 2 12 8 18" />
+  </svg>
+);
+
 
 const values = [
-  { title: "Innovation", desc: "We always seek creative solutions.", icon: <FiZap size={28} /> },
-  { title: "Reliability", desc: "Software that works every time.", icon: <FiCheckCircle size={28} /> },
-  { title: "Collaboration", desc: "Teamwork drives success.", icon: <FiUsers size={28} /> },
-  { title: "Scalability", desc: "Products that grow with you.", icon: <FiTrendingUp size={28} /> },
-];
-
-const team = [
-  { name: "Dilip Singh", role: "Founder & CEO", img: "/images/team-1.jpg" },
-  { name: "Arjun Shetn", role: "Founder & CEO", img: "/images/team-2.jpg" },
-  { name: "Aman Gupta", role: "Founder & CEO", img: "/images/team-1.jpg" },
-  { name: "Riken Bhatt", role: "Founder & CEO", img: "/images/team-2.jpg" },
+  { title: "Innovation", desc: "We always seek creative solutions.", icon: innovationIcon },
+  { title: "Reliability", desc: "Software that works every time.", icon: reliabilityIcon },
+  { title: "Collaboration", desc: "Teamwork drives success.", icon: collaborationIcon },
+  { title: "Scalability", desc: "Products that grow with you.", icon: scalabilityIcon },
 ];
 
 export default function About() {
@@ -34,31 +58,24 @@ export default function About() {
         transition={{ delay: 0.2 }}
         className="mt-6 text-center text-gray-700 max-w-3xl mx-auto text-lg md:text-xl"
       >
-        We are a product-minded engineering team building modern web and mobile solutions. 
+        We are a product-minded engineering team building modern web and mobile solutions.
         Our vision is to craft reliable software that feels effortless to use. Our mission
         is to turn complex problems into approachable, scalable products.
       </motion.p>
 
-      {/* Dynamic Image Grid */}
-      <div className="relative mt-12 grid md:grid-cols-2 gap-6">
-        {["/images/about-1.jpg", "/images/about-2.jpg"].map((src, i) => (
-          <motion.div
-            key={src}
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: i * 0.2 }}
-            className="overflow-hidden rounded-3xl shadow-xl border"
-          >
-            <img
-              src={src}
-              alt={`About ${i + 1}`}
-              className="w-full h-80 md:h-96 object-cover transform transition-transform hover:scale-105"
-              onError={(e) => { e.currentTarget.style.display = 'none'; }}
-            />
-          </motion.div>
-        ))}
-      </div>
+      {/* Our Commitment Section */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6, delay: 0.4 }}
+        className="mt-12 bg-gray-50 p-8 rounded-3xl shadow-xl border border-gray-100 text-center"
+      >
+        <h3 className="text-3xl font-bold text-gray-800 mb-4">Our Commitment to Excellence</h3>
+        <p className="text-gray-600 max-w-3xl mx-auto text-lg">
+          At 4lo.ops Tech, our commitment is to provide an unparalleled experience for our clients. We believe in meticulous attention to detail, continuous improvement, and a transparent development process that puts you in control. We are dedicated to delivering not just software, but a partnership built on trust and a shared vision for success.
+        </p>
+      </motion.div>
 
       {/* Core Values */}
       <div className="mt-20 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -80,34 +97,22 @@ export default function About() {
         ))}
       </div>
 
-      {/* Team Members */}
-      <div className="mt-24">
-        <h3 className="text-3xl font-bold mb-8 text-center">Meet the Team</h3>
-        <div className="grid md:grid-cols-2 gap-8">
-          {team.map((member, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="flex items-center gap-6 bg-white p-6 rounded-3xl shadow-xl hover:shadow-2xl transition transform hover:-translate-y-1"
-            >
-              <div className="relative w-24 h-24 rounded-full overflow-hidden border-2 border-indigo-100 shadow-soft">
-                <img
-                  src={member.img}
-                  alt={member.name}
-                  className="w-full h-full object-cover"
-                  onError={(e) => { e.currentTarget.style.display = 'none'; }}
-                />
-              </div>
-              <div>
-                <h4 className="text-xl font-semibold">{member.name}</h4>
-                <p className="text-gray-500">{member.role}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+      {/* Contact Us */}
+      <div className="mt-24 text-center">
+        <h3 className="text-3xl font-bold mb-4">Let's Build Something Great Together</h3>
+        <p className="text-lg text-gray-700 max-w-2xl mx-auto">
+          We are passionate about creating software that solves real-world problems. Get in touch with us to start your next project.
+        </p>
+        <motion.a
+          href="/contact"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="inline-block mt-8 px-8 py-4 bg-indigo-600 text-white font-semibold rounded-full shadow-lg hover:bg-indigo-700 transition transform hover:-translate-y-1"
+        >
+          Contact Us
+        </motion.a>
       </div>
     </section>
   );

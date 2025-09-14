@@ -122,13 +122,10 @@ export default function ProjectDetails() {
           transition={{ delay: 1 }}
         >
           <h2 className="text-3xl font-bold mb-4">Project Demo</h2>
-          <div className="relative w-full h-0 pb-[56.25%]">
-            <video
-              src={project.video}
-              controls
-              className="absolute top-0 left-0 w-full h-full rounded-xl shadow-lg"
-            />
+           <div className="relative w-full h-0 pb-[56.25%]">
+            <iframe width="100%" height="560" src={project.video} title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
           </div>
+
         </motion.section>
       )}
 

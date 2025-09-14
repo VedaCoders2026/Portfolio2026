@@ -9,6 +9,8 @@ import Skills from "./pages/Skills";
 import Team from "./pages/Team";
 import Contact from "./pages/Contact";
 import ProjectDetail from "./pages/ProjectDetails";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const pageVariants = {
   initial: { opacity: 0, y: 12 },
@@ -33,6 +35,16 @@ export default function App() {
   const location = useLocation();
   return (
     <div className="min-h-screen bg-slate-50 text-slate-900 bg-radial-fade">
+      <ToastContainer
+        position="top-right"
+        autoClose={4000}
+        hideProgressBar={false}
+        newestOnTop
+        closeOnClick
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <Navbar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>

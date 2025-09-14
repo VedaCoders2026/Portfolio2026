@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
+import logo from "../img/logos.png";
 
 const linkBase =
   "px-3 py-2 rounded-md text-sm font-medium transition hover:bg-white/70 hover:shadow";
@@ -30,7 +31,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 backdrop-blur supports-[backdrop-filter]:bg-white/10 bg-transparent border-b border-white/60">
       <nav className="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
         <div className="font-bold text-lg">4lo.ops <span className="text-indigo-600">Tech</span></div>
-
+         
         <div className="hidden md:flex gap-2">
           <Item to="/">Home</Item>
           <Item to="/about">About</Item>

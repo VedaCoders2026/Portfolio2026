@@ -1,31 +1,30 @@
+
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import api from '../supabase/axios';
+import {toast} from 'react-toastify';
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [purpose, setPurpose] = useState(""); // track purpose for thank-you msg
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
     setLoading(true);
     const form = new FormData(e.currentTarget);
     const entry = Object.fromEntries(form.entries());
 
     try {
-      // store locally
-      const msgs = JSON.parse(localStorage.getItem("messages") || "[]");
-      msgs.push({ ...entry, ts: new Date().toISOString() });
-      localStorage.setItem("messages", JSON.stringify(msgs));
+      // Send form data to server-side API
+      const response = await api.post('/api/contact',entry);
 
-      setPurpose(entry.purpose); // store purpose for thank-you message
-      setSent(true);
-      e.currentTarget.reset();
-
-      // auto-hide success message after 4s
-      setTimeout(() => setSent(false), 4000);
+      if(response){
+        toast.dismiss();
+        toast.success("Message sent successfully!");
+      }
     } catch (err) {
-      console.error("Failed to save message:", err);
+      console.error("Failed to send message:", err);
+      alert(`Failed to send message: ${err.message}`);
     } finally {
       setLoading(false);
     }
@@ -95,6 +94,7 @@ export default function Contact() {
             </select>
           </div>
         </div>
+
         {/* Message */}
         <div className="md:col-span-2 flex flex-col gap-2">
           <label className="text-sm">Message</label>
@@ -118,22 +118,6 @@ export default function Contact() {
         >
           {loading ? "Sending..." : "Send Message"}
         </motion.button>
-
-        {/* Success message */}
-        <AnimatePresence>
-          {sent && (
-            <motion.div
-              initial={{ opacity: 0, y: -5 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -5 }}
-              className="md:col-span-2 text-green-600 text-sm"
-            >
-              {purpose
-                ? `Thanks! We received your ${purpose} message.`
-                : "Thanks! We received your message."}
-            </motion.div>
-          )}
-        </AnimatePresence>
       </form>
 
       {/* Google Map Embed */}

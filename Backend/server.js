@@ -2,7 +2,7 @@
 require('dotenv').config();
 const express = require('express');
 const cloudinary = require('cloudinary').v2;
-const uploadRoutes = require('./routes/uploadRoutes');
+const contactRoutes = require('./routes/contactRoutes');
 const projectRoutes = require('./routes/projectRoutes');
 const cors = require('cors');
 
@@ -27,7 +27,7 @@ app.use(
 );
 
 // Routes
-app.use('/api', uploadRoutes);
+app.use('/api', contactRoutes);
 app.use('/api', projectRoutes);
 
 // Start server

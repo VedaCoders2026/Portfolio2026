@@ -1,10 +1,13 @@
 import { motion } from "framer-motion";
+import Arjun from '../TeamImg/Arjun.jpg';
+import Aman from '../TeamImg/Aman.png';
+import Riken from '../TeamImg/Riken.png';
 
 const TEAM = [
   { name: "Dilip Singh", role: "Front-end Engineer", img: "/images/t1.jpg" },
-  { name: "Aman Gupta", role: "Back-end Engineer", img: "/images/t2.jpg" },
-  { name: "Arjun Sheth", role: "Mobile Developer", img: "/images/t3.jpg" },
-  { name: "Riken Bhat", role: "UI/UX Designer", img: "/images/t4.jpg" },
+  { name: "Aman Gupta", role: "Back-end Engineer", img: Aman },
+  { name: "Arjun Sheth", role: "Mobile App Developer", img: Arjun},
+  { name: "Riken Bhat", role: "UI/UX Designer", img: Riken },
   { name: "Mohzzam Khan", role: "UI/UX Designer", img: "/images/t4.jpg" },
 ];
 
@@ -20,7 +23,7 @@ export default function Team() {
             className="group relative rounded-2xl overflow-hidden bg-white shadow-lg border border-gray-200 transition-all duration-300"
           >
             {/* Image with overlay */}
-            <div className="relative h-64">
+            <div className="relative h-72 w-full">
               <img
                 src={member.img}
                 alt={member.name}

@@ -5,6 +5,7 @@ const TEAM = [
   { name: "Aman Gupta", role: "Back-end Engineer", img: "/images/t2.jpg" },
   { name: "Arjun Sheth", role: "Mobile Developer", img: "/images/t3.jpg" },
   { name: "Riken Bhat", role: "UI/UX Designer", img: "/images/t4.jpg" },
+  { name: "Mohzzam Khan", role: "UI/UX Designer", img: "/images/t4.jpg" },
 ];
 
 export default function Team() {

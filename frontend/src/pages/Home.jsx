@@ -141,9 +141,9 @@ export default function Home() {
       </div>
 
       {/* Stats Section */}
-      <div className="bg-white border-t py-20">
-        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <Counter target={20} label="Projects Delivered" />
+      <div className="bg-white border-t py-20 ">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-8 text-center">
+          <Counter target={15} label="Projects Delivered" />
           <Counter target={5} label="Team Members" />
           <Counter target={2} label="Years of Experience" />
         </div>

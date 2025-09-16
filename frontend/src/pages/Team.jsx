@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import Arjun from '../TeamImg/Arjun.jpg';
-import Aman from '../TeamImg/Aman.png';
+import Aman from '../TeamImg/Aman.jpg';
 import Riken from '../TeamImg/Riken.png';
 
 const TEAM = [

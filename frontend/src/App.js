@@ -45,6 +45,7 @@ export default function App() {
         draggable
         pauseOnHover
       />
+      <div className="bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 min-h-screen text-white">
       <Navbar />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
@@ -58,7 +59,7 @@ export default function App() {
         </Routes>
       </AnimatePresence>
       <Footer />
-
+      </div>
     </div>
   );
 }

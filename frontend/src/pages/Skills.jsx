@@ -2,7 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import {
   FaReact, FaNodeJs, FaDatabase, FaCloud, FaMobileAlt,
-  FaClock, FaProjectDiagram, FaQuestionCircle, FaLightbulb, FaJava
+  FaClock, FaProjectDiagram, FaQuestionCircle, FaLightbulb, FaJava, FaJsSquare, FaHtml5, FaPython
 } from "react-icons/fa";
 import { SiTailwindcss, SiMongodb, SiExpress, SiReact } from "react-icons/si";
 import { Gauge, Code, Server, Smartphone, Database, Cloud } from "lucide-react";
@@ -29,6 +29,27 @@ const SKILLS = [
     projects: 15,
     icon: <SiTailwindcss className="text-teal-400" />,
   },
+  {
+  category: "Frontend",
+  name: "HTML",
+  desc: "Creating structured and semantic foundations for web pages.",
+  what: "HTML (HyperText Markup Language) is the standard language for defining the structure and content of web pages.",
+  why: "It forms the backbone of every website, enabling browsers to render text, media, and layouts.",
+  experience: "5 years",
+  projects: 20,
+  icon: <FaHtml5 className="text-orange-500" />,
+},
+
+{
+  category: "Frontend",
+  name: "JavaScript",
+  desc: "Powering interactivity and dynamic behavior in web applications.",
+  what: "JavaScript is a core web language that enables developers to add logic, interactivity, and functionality to websites.",
+  why: "It allows client-side scripting, asynchronous operations, and integrates seamlessly with frameworks like React and Node.js.",
+  experience: "5 years",
+  projects: 18,
+  icon: <FaJsSquare className="text-yellow-300" />,
+},
   {
     category: "UI/UX Design",
     name: "UI/UX Design",
@@ -70,6 +91,16 @@ const SKILLS = [
     projects: 9,
     icon: <FaJava className="text-red-500" />,
   },
+  {
+  category: "Backend",
+  name: "Python",
+  desc: "Building robust backend systems, APIs, and automation scripts.",
+  what: "Python is a versatile programming language widely used for backend development, data processing, and automation.",
+  why: "It offers extensive libraries, readability, and frameworks like Django and FastAPI to build scalable backend services.",
+  experience: "4 years",
+  projects: 15,
+  icon: <FaPython className="text-yellow-400" />,
+},
   // Mobile
   {
     category: "Mobile",

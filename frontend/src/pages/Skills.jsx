@@ -1,5 +1,9 @@
-import { motion } from "framer-motion";
-import { FaReact, FaNodeJs, FaDatabase, FaCloud, FaMobileAlt, FaClock, FaProjectDiagram, FaQuestionCircle, FaLightbulb, FaJava } from "react-icons/fa";
+import { motion, AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import {
+  FaReact, FaNodeJs, FaDatabase, FaCloud, FaMobileAlt,
+  FaClock, FaProjectDiagram, FaQuestionCircle, FaLightbulb, FaJava
+} from "react-icons/fa";
 import { SiTailwindcss, SiMongodb, SiExpress, SiReact } from "react-icons/si";
 import { Gauge, Code, Server, Smartphone, Database, Cloud } from "lucide-react";
 
@@ -132,97 +136,118 @@ const SKILLS = [
 ];
 
 const categoryIcons = {
-  Frontend: <Code size={20} className="text-teal-400" />,
-  Backend: <Server size={20} className="text-teal-400" />,
-  Mobile: <Smartphone size={20} className="text-teal-400" />,
-  Database: <Database size={20} className="text-teal-400" />,
-  Cloud: <Cloud size={20} className="text-teal-400" />,
-  "UI/UX Design": <Gauge size={20} className="text-teal-400" />,
-  "Hosting & Cloud": <Cloud size={20} className="text-teal-400" />,
+  Frontend: <Code size={18} className="text-teal-400" />,
+  Backend: <Server size={18} className="text-teal-400" />,
+  Mobile: <Smartphone size={18} className="text-teal-400" />,
+  Database: <Database size={18} className="text-teal-400" />,
+  Cloud: <Cloud size={18} className="text-teal-400" />,
+  "UI/UX Design": <Gauge size={18} className="text-teal-400" />,
 };
 
 export default function Skills() {
   return (
-    <section className="bg-gray-950 text-white min-h-screen py-20">
-      <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-center text-white mb-12">
-          Our <span className="text-teal-400">Expertise</span>
-        </h2>
+    <section className="relative bg-gradient-to-b from-gray-950 via-gray-900 to-black text-white min-h-screen py-20 overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6">
+        <motion.h2
+          initial={{ opacity: 0, y: -30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-4xl md:text-5xl font-extrabold text-center mb-14"
+        >
+          Our <span className="bg-gradient-to-r from-teal-400 to-cyan-400 bg-clip-text text-transparent">Expertise</span>
+        </motion.h2>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-10">
           {SKILLS.map((s, i) => (
-            <motion.div
-              key={s.name}
-              className="bg-gray-900 border border-gray-800 rounded-3xl p-6 shadow-xl overflow-hidden will-change-transform"
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.2 }}
-              transition={{ duration: 0.6, delay: i * 0.08 }}
-            >
-              {/* Category Header */}
-              <div className="flex items-center gap-2 mb-4">
-                {categoryIcons[s.category]}
-                <span className="text-sm uppercase font-semibold text-teal-400">
-                  {s.category}
-                </span>
-              </div>
-
-              {/* Main Skill Info */}
-              <div className="flex items-center gap-4 mb-4">
-                <motion.div
-                  whileHover={{ rotate: 15, scale: 1.2 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                  className="w-10 h-10 flex items-center justify-center text-3xl"
-                >
-                  {s.icon}
-                </motion.div>
-                <h3 className="font-bold text-xl text-white">{s.name}</h3>
-              </div>
-
-              {/* Description */}
-              <p className="text-slate-400 text-sm mb-4">{s.desc}</p>
-
-              {/* Experience & Projects */}
-              <div className="flex items-center flex-wrap gap-4 text-slate-400 text-sm mb-4">
-                <div className="flex items-center gap-2">
-                  <FaClock className="w-4 h-4 text-orange-400" />{" "}
-                  <span>{s.experience}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <FaProjectDiagram className="w-4 h-4 text-green-400" />{" "}
-                  <span>{s.projects} Projects</span>
-                </div>
-              </div>
-
-              {/* Accordion-like details */}
-              <details className="group">
-                <summary className="cursor-pointer font-medium text-slate-300 text-sm list-none flex items-center justify-between py-2 border-t border-gray-800 hover:text-teal-400 transition-colors duration-300">
-                  <span>Learn more</span>
-                  <svg className="w-4 h-4 transition-transform duration-300 group-open:rotate-180" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clipRule="evenodd" />
-                  </svg>
-                </summary>
-                <div className="space-y-4 pt-4 text-sm text-slate-400">
-                  <div className="flex items-start gap-2">
-                    <FaQuestionCircle className="w-4 h-4 text-blue-400 mt-1 flex-shrink-0" />
-                    <div>
-                      <span className="font-semibold text-slate-300">What is it?</span>
-                      <p>{s.what}</p>
-                    </div>
-                  </div>
-                  <div className="flex items-start gap-2">
-                    <FaLightbulb className="w-4 h-4 text-yellow-400 mt-1 flex-shrink-0" />
-                    <div>
-                      <span className="font-semibold text-slate-300">Why is it important?</span>
-                      <p>{s.why}</p>
-                    </div>
-                  </div>
-                </div>
-              </details>
-            </motion.div>
+            <SkillCard key={s.name} skill={s} delay={i * 0.12} />
           ))}
         </div>
       </div>
     </section>
+  );
+}
+
+function SkillCard({ skill, delay }) {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.2 }}
+      transition={{ duration: 0.7, delay }}
+      className="relative bg-gray-900/80 border border-gray-800 rounded-3xl p-6 shadow-2xl backdrop-blur-md hover:border-teal-500/50 transition cursor-pointer group"
+    >
+      {/* Category */}
+      <div className="flex items-center gap-2 mb-5">
+        {categoryIcons[skill.category]}
+        <span className="text-xs uppercase font-bold text-teal-400 tracking-wider">{skill.category}</span>
+      </div>
+
+      {/* Main */}
+      <div className="flex items-center gap-4 mb-4">
+        <motion.div
+          whileHover={{ rotate: 12, scale: 1.2 }}
+          transition={{ type: "spring", stiffness: 300 }}
+          className="w-12 h-12 flex items-center justify-center text-3xl"
+        >
+          {skill.icon}
+        </motion.div>
+        <h3 className="text-xl font-bold">{skill.name}</h3>
+      </div>
+
+      <p className="text-slate-400 text-sm mb-5">{skill.desc}</p>
+
+      {/* Stats */}
+      <div className="flex items-center gap-3 text-xs mb-6 flex-wrap">
+        <span className="px-3 py-1 rounded-full bg-orange-500/20 text-orange-300 flex items-center gap-1">
+          <FaClock className="w-3 h-3" /> {skill.experience}
+        </span>
+        <span className="px-3 py-1 rounded-full bg-green-500/20 text-green-300 flex items-center gap-1">
+          <FaProjectDiagram className="w-3 h-3" /> {skill.projects} Projects
+        </span>
+      </div>
+
+      {/* Learn More */}
+      <button
+        onClick={() => setOpen(!open)}
+        className="w-full text-left py-2 border-t border-gray-800 text-sm font-medium flex justify-between items-center hover:text-teal-400 transition-colors"
+      >
+        Learn more
+        <motion.span
+          animate={{ rotate: open ? 180 : 0 }}
+          transition={{ duration: 0.3 }}
+        >
+          ▼
+        </motion.span>
+      </button>
+
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.4 }}
+            className="pt-4 space-y-4 text-sm text-slate-400"
+          >
+            <div className="flex gap-2 items-start">
+              <FaQuestionCircle className="text-blue-400 mt-1 w-4 h-4" />
+              <div>
+                <span className="font-semibold text-slate-200">What is it?</span>
+                <p>{skill.what}</p>
+              </div>
+            </div>
+            <div className="flex gap-2 items-start">
+              <FaLightbulb className="text-yellow-400 mt-1 w-4 h-4" />
+              <div>
+                <span className="font-semibold text-slate-200">Why is it important?</span>
+                <p>{skill.why}</p>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.div>
   );
 }

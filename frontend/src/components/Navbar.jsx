@@ -50,7 +50,7 @@ export default function Navbar() {
         <div className="font-bold text-2xl text-white flex items-center gap-2">
           <img src={logo} alt="4lo.ops Tech Logo" className="h-10 w-auto" />
           <span className="hidden sm:block">
-            4lo.ops <span className="text-teal-400">Tech</span>
+            Veda.<span className="text-teal-400">Coders</span>
           </span>
         </div>
 

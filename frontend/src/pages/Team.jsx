@@ -5,12 +5,12 @@ import Dilip from '../TeamImg/Dilip.png';
 import { Linkedin, Github, Instagram } from "lucide-react";
 
 const TEAM = [
-  { name: "Dilip Singh", role: "Front-end Engineer", img: Dilip },
-  { name: "Aman Gupta", role: "Back-end Engineer", img: Aman },
-  { name: "Arjun Sheth", role: "Mobile App Developer", img: Arjun },
-  { name: "Riken Bhat", role: "Gen Ai Developer", img: Riken },
-  { name: "Mohzzam Khan", role: "UI/UX Designer", img: "/images/t4.jpg" },
-  { name: "Yugal Guru", role: "Software Developer", img: "/images/t4.jpg" },
+  { name: "Dilip Singh", role: "Managing Director", subRole: "Innovation & Development", img: Dilip },
+  { name: "Aman Gupta", role: "Managing Director", subRole: "Technology & Infrastructure", img: Aman },
+  { name: "Arjun Sheth", role: "Managing Director", subRole: "Business Strategy & Operations", img: Arjun },
+  { name: "Riken Bhat", role: "Managing Director", subRole: "Finance & Compliance", img: Riken },
+  { name: "Mohzzam Khan", role: "Equity Partner", subRole: "Head of Brand & Social Media", img: "/images/t4.jpg" },
+  { name: "Yugal Guru", role: "Equity Partner", subRole: "Software Developer", img: "/images/t4.jpg" },
 ];
 
 export default function Team() {
@@ -46,7 +46,10 @@ export default function Team() {
                 <h3 className="text-lg font-bold text-white group-hover:text-teal-400 transition-colors duration-300">
                   {member.name}
                 </h3>
-                <p className="text-slate-400 mt-1 text-sm">{member.role}</p>
+                <p className="text-slate-400 mt-1 text-sm">
+                  {member.role}<br/>
+                  {member.subRole}
+                </p>
               </div>
 
               {/* Floating Social Links */}

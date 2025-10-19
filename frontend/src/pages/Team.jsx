@@ -8,7 +8,7 @@ const TEAM = [
   { name: "Dilip Singh", role: "Managing Director", subRole: "Innovation & Development", img: Dilip },
   { name: "Aman Gupta", role: "Managing Director", subRole: "Technology & Infrastructure", img: Aman },
   { name: "Arjun Sheth", role: "Managing Director", subRole: "Business Strategy & Operations", img: Arjun },
-  { name: "Riken Bhat", role: "Managing Director", subRole: "Finance & Compliance", img: Riken },
+  { name: "Riken Bhatt", role: "Managing Director", subRole: "Finance & Compliance", img: Riken },
   { name: "Mohzzam Khan", role: "Equity Partner", subRole: "Head of Brand & Social Media", img: "/images/t4.jpg" },
   { name: "Yugal Guru", role: "Equity Partner", subRole: "Software Developer", img: "/images/t4.jpg" },
 ];

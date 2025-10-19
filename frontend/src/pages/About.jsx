@@ -55,7 +55,7 @@ export default function About() {
         >
           About{" "}
           <span className="bg-gradient-to-r from-teal-400 via-cyan-400 to-sky-500 bg-clip-text text-transparent">
-            4lo.ops Tech
+            Veda.Coders Tech
           </span>
         </motion.h2>
 

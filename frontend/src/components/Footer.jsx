@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 text-slate-400">
           {/* Company Info */}
           <div className="col-span-2">
-            <h3 className="text-2xl font-bold text-white mb-4">4lo.ops Tech</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Veda.Coders Tech</h3>
             <p className="text-sm max-w-sm">
               We are a team of passionate developers and designers creating innovative solutions for a digital world.
             </p>

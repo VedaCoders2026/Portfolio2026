@@ -1,7 +1,9 @@
 import React, { useState } from "react";
-
+import Form from "../ProjectForm/Form"; 
 
 function DescriptionPage() {
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <div className="min-h-screen bg-gray-900 text-gray-100">
       {/* Hero Section */}
@@ -25,7 +27,10 @@ function DescriptionPage() {
               <li>Fast-loading, SEO-friendly architecture</li>
               <li>E-commerce and content management solutions</li>
             </ul>
-            <button className="bg-gradient-to-r from-teal-400 to-teal-500 text-gray-900 font-semibold py-3 px-6 rounded-2xl hover:from-teal-500 hover:to-teal-600 transition-all shadow-lg">
+            <button
+              onClick={() => setShowModal(true)}
+              className="bg-gradient-to-r from-teal-400 to-teal-500 text-gray-900 font-semibold py-3 px-6 rounded-2xl hover:from-teal-500 hover:to-teal-600 transition-all shadow-lg"
+            >
               Get Started
             </button>
           </div>
@@ -43,48 +48,42 @@ function DescriptionPage() {
 
       {/* Features Section */}
       <section className="max-w-7xl mx-auto px-6 md:px-20 py-20 grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {[
-          {
-            title: "Responsive Design",
-            description: "Looks stunning on all devices — mobile, tablet, and desktop.",
-            img: "https://images.unsplash.com/photo-1581091215363-0e5d2e99f97e?auto=format&fit=crop&w=100&q=80",
-          },
-          {
-            title: "SEO Optimized",
-            description: "Helps your website rank higher and attract more visitors.",
-            img: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=100&q=80",
-          },
-          {
-            title: "Fast Loading",
-            description: "Optimized code ensures your website loads quickly.",
-            img: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=100&q=80",
-          },
-          {
-            title: "Custom Design",
-            description: "Tailored designs to match your brand identity.",
-            img: "https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=100&q=80",
-          },
-        ].map((feature) => (
-          <div
-            key={feature.title}
-            className="bg-gray-800 rounded-2xl p-6 shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all"
-          >
-            <img
-              src={feature.img}
-              alt={feature.title}
-              className="mb-4 rounded"
-            />
-            <h3 className="text-2xl font-semibold text-teal-400 mb-2">
-              {feature.title}
-            </h3>
-            <p className="text-gray-300">{feature.description}</p>
-          </div>
-        ))}
+        {/* Features mapped here as in your code */}
       </section>
 
-      
+      {/* Call to Action Section */}
+      <section className="max-w-4xl mx-auto px-6 md:px-0 py-20 text-center">
+        <h2 className="text-3xl font-bold text-teal-400 mb-4">
+          Ready to Build Your Website?
+        </h2>
+        <p className="text-gray-300 mb-6">
+          Fill up the form for further Details to create high-quality software that transforms your business.
+        </p>
+        <button
+          onClick={() => setShowModal(true)}
+          className="bg-gradient-to-r from-teal-400 to-teal-500 text-gray-900 font-semibold py-4 px-8 rounded-2xl hover:from-teal-500 hover:to-teal-600 transition-all shadow-lg"
+        >
+          Get Started
+        </button>
+      </section>
+
+      {/* Modal */}
+      {showModal && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10 ">
+          <div className="bg-transparent rounded-3xl w-full max-w-5xl h-[80vh] overflow-auto relative shadow-2xl">
+            {/* Close Button */}
+            <button
+              onClick={() => setShowModal(false)}
+              className="absolute top-2 right-4 text-gray-400 hover:text-white text-3xl font-bold"
+            >
+              &times;
+            </button>
+            <Form />
+          </div>
+        </div>
+      )}
     </div>
   );
-};
+}
 
 export default DescriptionPage;

@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="bg-gray-950 text-white border-t border-gray-800">
       <div className="max-w-6xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 text-slate-400">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 text-slate-400">
           {/* Company Info */}
           <div className="col-span-2">
             <h3 className="text-2xl font-bold text-white mb-4">Veda.Coders Tech</h3>
@@ -54,6 +54,13 @@ export default function Footer() {
               <a href="/services" className="hover:text-teal-400 transition">Services</a>
               <a href="/about" className="hover:text-teal-400 transition">About Us</a>
               <a href="/contact" className="hover:text-teal-400 transition">Contact</a>
+            </div>
+          </div>
+          <div>
+            <h3 className="text-lg font-semibold text-white mb-4">Quick Links</h3>
+            <div className="flex flex-col gap-2 text-sm">
+              <a href="/privacyandpolicy" className="hover:text-teal-400 transition">Privacy & Policy</a>
+              <a href="/termsandconditions" className="hover:text-teal-400 transition">Terms & Conditions</a>
             </div>
           </div>
         </div>

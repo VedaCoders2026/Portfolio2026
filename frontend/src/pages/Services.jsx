@@ -7,21 +7,25 @@ export default function WebDevelopment() {
       img: "https://images.unsplash.com/photo-1581276879432-15a19d654956?auto=format&fit=crop&w=800&q=80",
       title: "Custom Web Development",
       desc: "Tailored websites built from scratch using modern frameworks like React & Next.js.",
+      link: "/webdevelopment", // Add link for redirect
     },
     {
       img: "https://images.unsplash.com/photo-1557682224-5b8590cd9ec5?auto=format&fit=crop&w=800&q=80",
       title: "Mobile Applications",
       desc: "Perfect layouts on any screen — mobile, tablet, or desktop.",
+      link: "/mobileapplications", // Add link for redirect
     },
     {
       img: "https://images.unsplash.com/photo-1506765515384-028b60a970df?auto=format&fit=crop&w=800&q=80",
       title: "Software Development",
       desc: "Fast load times, SEO-friendly architecture, and clean codebase.",
+      link: "/softwaredevelopment", // Add link for redirect
     },
     {
       img: "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?auto=format&fit=crop&w=800&q=80",
       title: "UI/UX Design",
       desc: "Built to rank with best on-page SEO and meta optimizations.",
+      link: "/uxdesign", // Add link for redirect
     },
   ];
 
@@ -48,21 +52,20 @@ export default function WebDevelopment() {
           delivering world-class Websites, Applications, and Software with
           speed, scalability, and elegance.
         </p>
-          <div className="flex justify-center gap-4">
-            <a
-              href="/projects"
-              className="px-6 py-3 bg-teal-500 hover:bg-teal-400 text-white rounded-lg font-semibold transition inline-block"
-            >
-              View Projects
-            </a>
-            <a
-              href="/about"
-              className="px-6 py-3 border border-gray-600 hover:border-teal-400 text-gray-200 hover:text-teal-400 rounded-lg font-semibold transition inline-block"
-            >
-              Why Choose Us?
-            </a>
-          </div>
-
+        <div className="flex justify-center gap-4">
+          <a
+            href="/projects"
+            className="px-6 py-3 bg-teal-500 hover:bg-teal-400 text-white rounded-lg font-semibold transition inline-block"
+          >
+            View Projects
+          </a>
+          <a
+            href="/about"
+            className="px-6 py-3 border border-gray-600 hover:border-teal-400 text-gray-200 hover:text-teal-400 rounded-lg font-semibold transition inline-block"
+          >
+            Why Choose Us?
+          </a>
+        </div>
       </section>
 
       {/* Product Cards Grid */}
@@ -88,14 +91,16 @@ export default function WebDevelopment() {
                 {product.title}
               </h3>
               <p className="text-gray-400 mb-4 flex-grow">{product.desc}</p>
-              <a href="/webdevelopment" className="mt-auto px-4 py-2 bg-teal-500 hover:bg-teal-400 text-white font-medium rounded-lg transition">
+              <a
+                href={product.link} // Redirect to the specific page
+                className="mt-auto px-4 py-2 bg-teal-500 hover:bg-teal-400 text-white font-medium rounded-lg transition text-center"
+              >
                 Learn More
               </a>
             </div>
           </motion.div>
         ))}
       </section>
-
     </div>
   );
 }

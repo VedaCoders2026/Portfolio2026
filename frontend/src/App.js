@@ -13,10 +13,11 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import  Services from "./pages/Services";
 import CustomWebDevelopment from "./ProjectDetails/Webdevelopment";
-import MobileDevelopment from "./ProjectDetails/MobileApplications";
+import MobileApplications from "./ProjectDetails/MobileApplications";
 import SoftwareDevelopment from "./ProjectDetails/SoftwareDevelopment";
 import UXDesign from "./ProjectDetails/UXDesign";
-
+import TermsAndConditions from "./pages/Terms&Condition";
+import PrivacyAndPolicy from "./pages/Privacy&policy";
 
 const pageVariants = {
   initial: { opacity: 0, y: 12 },
@@ -64,9 +65,11 @@ export default function App() {
           <Route path="/contact" element={<Page><Contact /></Page>} />
           <Route path="/services" element={<Page><Services /></Page>} />
           <Route path="/webdevelopment" element={<Page><CustomWebDevelopment /></Page>} />
-          <Route path="/mobiledevelopment" element={<Page><MobileDevelopment /></Page>} />
+          <Route path="/mobileapplications" element={<Page><MobileApplications /></Page>} />
           <Route path="/softwaredevelopment" element={<Page><SoftwareDevelopment /></Page>} />
           <Route path="/uxdesign" element={<Page><UXDesign /></Page>} />
+          <Route path="/termsandconditions" element={<Page><TermsAndConditions /></Page>} />
+          <Route path="/privacyandpolicy" element={<Page><PrivacyAndPolicy /></Page>} />
         </Routes>
       </AnimatePresence>
       <Footer />

@@ -8,8 +8,7 @@ const linkBase =
   "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300";
 const activeClass =
   "bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-lg";
-const inactiveClass =
-  "text-slate-300 hover:bg-gray-800 hover:text-white";
+const inactiveClass = "text-slate-300 hover:bg-gray-800 hover:text-white";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -35,12 +34,12 @@ export default function Navbar() {
     open: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 300, damping: 30 }
+      transition: { type: "spring", stiffness: 300, damping: 30 },
     },
     closed: {
       opacity: 0,
       y: -20,
-      transition: { duration: 0.2 }
+      transition: { duration: 0.2 },
     },
   };
 
@@ -56,9 +55,10 @@ export default function Navbar() {
 
         <div className="hidden md:flex gap-4">
           <Item to="/">Home</Item>
-          <Item to="/about">About</Item>
+          <Item to="/services">Services</Item>
           <Item to="/projects">Projects</Item>
           <Item to="/skills">Skills</Item>
+          <Item to="/about">About</Item>
           <Item to="/team">Team</Item>
           <Item to="/contact">Contact</Item>
         </div>
@@ -83,9 +83,10 @@ export default function Navbar() {
           >
             <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-2">
               <Item to="/">Home</Item>
-              <Item to="/about">About</Item>
+              <Item to="/services">Services</Item>
               <Item to="/projects">Projects</Item>
               <Item to="/skills">Skills</Item>
+              <Item to="/about">About</Item>
               <Item to="/team">Team</Item>
               <Item to="/contact">Contact</Item>
             </div>

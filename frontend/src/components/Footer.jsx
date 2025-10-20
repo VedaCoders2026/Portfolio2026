@@ -37,7 +37,7 @@ export default function Footer() {
             <div className="flex flex-col gap-2 text-sm">
               <a href="mailto:info@4lo.ops.com" className="hover:text-teal-400 transition flex items-center gap-2">
                 <Mail size={16} className="text-slate-500" />
-                <span>info@4lo.ops.com</span>
+                <span>veda.coders2025@gmail.com</span>
               </a>
               <a href="tel:+919876543210" className="hover:text-teal-400 transition flex items-center gap-2">
                 <Phone size={16} className="text-slate-500" />
@@ -61,7 +61,7 @@ export default function Footer() {
 
       <div className="border-t border-gray-800 py-4">
         <div className="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} 4lo.ops Tech. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} Veda.Coders Tech. All rights reserved.</p>
         </div>
       </div>
     </footer>

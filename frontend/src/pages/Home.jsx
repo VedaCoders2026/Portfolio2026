@@ -60,7 +60,7 @@ export default function Home() {
         >
           Building the Future with{" "}
           <span className="bg-clip-text text-transparent bg-gradient-to-r from-teal-400 via-cyan-500 to-sky-600">
-            Veda.Coders Tech
+            SixthSyntax Tech
           </span>
         </motion.h1>
 

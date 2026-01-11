@@ -43,7 +43,7 @@ export default function WebDevelopment() {
           className="text-5xl md:text-6xl font-extrabold mb-6"
         >
           Building the Future with{" "}
-          <span className="text-teal-400">Veda.Coders Tech</span>
+          <span className="text-teal-400">SixthSyntax Tech</span>
         </motion.h1>
         <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
           We transform <span className="text-white font-medium">ideas</span>{" "}

@@ -5,13 +5,13 @@ const PrivacyPolicy = () => {
     <div className="min-h-screen bg-gray-900 text-gray-200 py-10 px-4">
       <div className="max-w-5xl mx-auto bg-gray-800 rounded-2xl shadow-lg p-8 overflow-y-auto">
         <h1 className="text-4xl font-bold text-teal-400 mb-4 text-center">
-          Privacy Policy – Veda Coders
+          Privacy Policy – SixthSyntax
         </h1>
         <p className="text-gray-300 mb-8">
           Effective Date: [Insert Date]
         </p>
         <p className="text-gray-300 mb-6">
-          Veda Coders respects your privacy and is committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and protect your data.
+          SixthSyntax respects your privacy and is committed to protecting your personal information. This Privacy Policy outlines how we collect, use, and protect your data.
         </p>
 
         {[
@@ -80,7 +80,7 @@ const PrivacyPolicy = () => {
             content:
               "If you have any questions about this Privacy Policy, please contact us at:",
             contact: {
-              email: "veda.codes2025@gmail.com",
+              email: "sixthsyntax@gmail.com",
               phone: "+91 9082381496 / +91 9920551199",
             },
           },

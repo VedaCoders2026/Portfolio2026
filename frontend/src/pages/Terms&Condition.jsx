@@ -5,7 +5,7 @@ const TermsAndConditions = () => {
     <div className="min-h-screen bg-gray-900 text-gray-200 py-10 px-4">
       <div className="max-w-5xl mx-auto bg-gray-800 rounded-2xl shadow-lg p-8 overflow-y-auto">
         <h1 className="text-4xl font-bold text-teal-400 mb-6 text-center">
-          Terms and Conditions – Veda Coders
+          Terms and Conditions – SixthSyntax
         </h1>
 
         {/* Section Component */}
@@ -13,7 +13,7 @@ const TermsAndConditions = () => {
           {
             title: "1. Introduction",
             content:
-              "Welcome to Veda Coders, a Digital development company. These Terms and Conditions govern your use of our services and website. By engaging with us, you agree to be bound by these terms.",
+              "Welcome to SixthSyntax, a Digital development company. These Terms and Conditions govern your use of our services and website. By engaging with us, you agree to be bound by these terms.",
           },
           {
             title: "2. Services Offered",
@@ -79,7 +79,7 @@ const TermsAndConditions = () => {
             content:
               "If you have questions about these Terms, contact us at:",
             contact: {
-              email: "veda.codes2025@gmail.com",
+              email: "sixthsyntax@gmail.com",
               phone: "+91 9082381496 / +91 9920551199",
             },
           },

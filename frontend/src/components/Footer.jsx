@@ -8,7 +8,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 text-slate-400">
           {/* Company Info */}
           <div className="col-span-2">
-            <h3 className="text-2xl font-bold text-white mb-4">Veda.Coders Tech</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">SixthSyntax</h3>
             <p className="text-sm max-w-sm">
               We are a team of passionate developers and designers creating innovative solutions for a digital world.
             </p>
@@ -37,7 +37,7 @@ export default function Footer() {
             <div className="flex flex-col gap-2 text-sm">
               <a href="mailto:info@4lo.ops.com" className="hover:text-teal-400 transition flex items-center gap-2">
                 <Mail size={16} className="text-slate-500" />
-                <span>veda.coders2025@gmail.com</span>
+                <span>sixthsyntax@gmail.com</span>
               </a>
               <a href="tel:+919876543210" className="hover:text-teal-400 transition flex items-center gap-2">
                 <Phone size={16} className="text-slate-500" />
@@ -68,7 +68,7 @@ export default function Footer() {
 
       <div className="border-t border-gray-800 py-4">
         <div className="max-w-6xl mx-auto px-4 text-center text-xs text-slate-500">
-          <p>© {new Date().getFullYear()} Veda.Coders Tech. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} SixthSyntax Tech. All rights reserved.</p>
         </div>
       </div>
     </footer>

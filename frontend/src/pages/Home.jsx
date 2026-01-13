@@ -143,7 +143,7 @@ export default function Home() {
       {/* Stats Section */}
       <div className="bg-gradient-to-r from-gray-900 to-gray-800 border-t border-gray-700 py-24">
         <div className="max-w-5xl mx-auto px-6 grid grid-cols-2 md:grid-cols-3 gap-12 text-center">
-          <Counter target={12} label="Projects Delivered" />
+          <Counter target={2} label="Projects Delivered" />
           <Counter target={6} label="Team Members" />
           <Counter target={2} label="Years of Experience" />
         </div>

@@ -47,7 +47,7 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 backdrop-blur-md bg-gray-950/70 border-b border-gray-800">
       <nav className="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
         <div className="font-bold text-2xl text-white flex items-center gap-2">
-          <img src={logo} alt="4lo.ops Tech Logo" className="h-10 w-auto" />
+          {/* <img src={logo} alt="4lo.ops Tech Logo" className="h-10 w-auto" /> */}
           <span className="hidden sm:block">
             Sixth<span className="text-teal-400">Syntax</span>
           </span>

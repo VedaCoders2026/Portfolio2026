@@ -41,9 +41,22 @@ app.use((req, _res, next) => {
 // Middleware
 app.use(express.json());
 
+const allowedOrigins = [
+  'http://localhost:3000',
+  'http://localhost:5000',
+  'https://sixthsyntax.com',
+  'https://www.sixthsyntax.com'
+];
+
 app.use(
   cors({
-    origin: process.env.REACT_APP_API_BASE_URL, // e.g. http://localhost:3000
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    },
     credentials: true,
   })
 );

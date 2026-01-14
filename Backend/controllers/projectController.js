@@ -35,18 +35,28 @@ exports.getProjectById = async (req, res) => {
   const { id } = req.params;
 
   try {
-    // Use req.dbPool from server.js middleware
     const result = await req.dbPool.request()
-      .input('id', sql.Numeric(36, 0), id)
+      .input('id', sql.Int, id)
       .query('SELECT * FROM dbo.projects WHERE id = @id');
 
     if (result.recordset.length === 0) {
-      return res.status(404).json({ error: 'Project not found', details: 'No project exists with the provided ID' });
+      return res.status(404).json({
+        error: 'Project not found',
+        details: 'No project exists with the provided ID'
+      });
     }
 
-    res.json(result.recordset[0]);
+    const project = result.recordset[0];
+
+    project.gallery = project.gallery ? JSON.parse(project.gallery) : [];
+    project.features = project.features ? JSON.parse(project.features) : [];
+
+    res.json(project);
   } catch (error) {
     console.error('MSSQL Error:', error);
-    return res.status(404).json({ error: 'Project not found', details: error.message });
+    return res.status(500).json({
+      error: 'Failed to fetch project',
+      details: error.message
+    });
   }
 };

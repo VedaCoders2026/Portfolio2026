@@ -33,7 +33,7 @@ const TEAM = [
     subRole: "Business Strategy & Operations",
     img: Arjun,
     socials: {
-      linkedin: "www.linkedin.com/in/arjun-sheth-b98712167",
+      linkedin: "https://www.linkedin.com/in/arjun-sheth-b98712167",
       github: "https://github.com/adsheth95",
       instagram: "",
     },

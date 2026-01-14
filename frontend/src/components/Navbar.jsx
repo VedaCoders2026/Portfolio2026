@@ -1,23 +1,29 @@
 import { useState, useEffect } from "react";
 import { NavLink, useLocation } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
-import logo from "../img/logos.png";
 import { motion, AnimatePresence } from "framer-motion";
 
 const linkBase =
-  "px-4 py-2 rounded-full text-sm font-medium transition-all duration-300";
+  "px-4 py-3 rounded-full text-base font-medium transition-all duration-300";
 const activeClass =
   "bg-gradient-to-r from-teal-500 to-cyan-500 text-white shadow-lg";
-const inactiveClass = "text-slate-300 hover:bg-gray-800 hover:text-white";
+const inactiveClass =
+  "text-slate-300 hover:bg-gray-800 hover:text-white";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { pathname } = useLocation();
 
+  // Close menu on route change
   useEffect(() => {
-    // Close the menu on route change
     setOpen(false);
   }, [pathname]);
+
+  // Lock body scroll when menu is open (mobile UX)
+  useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+    return () => (document.body.style.overflow = "auto");
+  }, [open]);
 
   const Item = ({ to, children }) => (
     <NavLink
@@ -34,7 +40,7 @@ export default function Navbar() {
     open: {
       opacity: 1,
       y: 0,
-      transition: { type: "spring", stiffness: 300, damping: 30 },
+      transition: { type: "spring", stiffness: 260, damping: 28 },
     },
     closed: {
       opacity: 0,
@@ -44,16 +50,15 @@ export default function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-gray-950/70 border-b border-gray-800">
-      <nav className="max-w-6xl mx-auto px-4 h-20 flex items-center justify-between">
-        <div className="font-bold text-2xl text-white flex items-center gap-2">
-          {/* <img src={logo} alt="4lo.ops Tech Logo" className="h-10 w-auto" /> */}
-          <span className="hidden sm:block">
-            Sixth<span className="text-teal-400">Syntax</span>
-          </span>
+    <header className="sticky top-0 z-50 backdrop-blur-md bg-gray-950/80 border-b border-gray-800">
+      <nav className="max-w-6xl mx-auto px-4 h-16 sm:h-20 flex items-center justify-between">
+        {/* Logo */}
+        <div className="font-bold text-xl sm:text-2xl text-white">
+          Sixth<span className="text-teal-400">Syntax</span>
         </div>
 
-        <div className="hidden md:flex gap-4">
+        {/* Desktop Menu */}
+        <div className="hidden md:flex gap-3">
           <Item to="/">Home</Item>
           <Item to="/services">Services</Item>
           <Item to="/projects">Projects</Item>
@@ -63,25 +68,27 @@ export default function Navbar() {
           <Item to="/contact">Contact</Item>
         </div>
 
+        {/* Mobile Toggle */}
         <button
-          className="md:hidden p-2 text-white transition-all duration-300"
+          className="md:hidden p-2 rounded-lg text-white hover:bg-gray-800"
           onClick={() => setOpen((v) => !v)}
-          aria-label="Toggle navigation menu"
+          aria-label="Toggle navigation"
         >
-          {open ? <FiX size={24} /> : <FiMenu size={24} />}
+          {open ? <FiX size={26} /> : <FiMenu size={26} />}
         </button>
       </nav>
 
+      {/* Mobile Menu */}
       <AnimatePresence>
         {open && (
           <motion.div
-            className="md:hidden border-t border-gray-800 bg-gray-950/90 backdrop-blur-md"
+            className="md:hidden fixed inset-x-0 top-16 sm:top-20 bg-gray-950/95 backdrop-blur-xl border-t border-gray-800"
             initial="closed"
             animate="open"
             exit="closed"
             variants={menuVariants}
           >
-            <div className="max-w-6xl mx-auto px-4 py-4 flex flex-col gap-2">
+            <div className="px-4 py-6 flex flex-col gap-3">
               <Item to="/">Home</Item>
               <Item to="/services">Services</Item>
               <Item to="/projects">Projects</Item>

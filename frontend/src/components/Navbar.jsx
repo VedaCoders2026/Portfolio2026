@@ -53,9 +53,9 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 backdrop-blur-md bg-gray-950/80 border-b border-gray-800">
       <nav className="max-w-6xl mx-auto px-4 h-16 sm:h-20 flex items-center justify-between">
         {/* Logo */}
-        <div className="font-bold text-xl sm:text-2xl text-white">
-          Sixth<span className="text-teal-400">Syntax</span>
-        </div>
+        <div className="font-extrabold text-2xl sm:text-3xl md:text-4xl tracking-tight text-white">
+  Sixth<span className="text-teal-400">Syntax</span>
+</div>
 
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-3">

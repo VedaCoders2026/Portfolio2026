@@ -53,11 +53,11 @@ const TEAM = [
     name: "Mohzzam Khan",
     role: "Equity Partner",
     subRole: "Head of Brand & Social Media",
-    img: "/images/t4.jpg",
+    img: "/images/portimg.png",
     socials: {
       linkedin: "",
-      github: "",
-      instagram: "https://instagram.com/mohzzam.khan",
+      github: "https://github.com/Mohzzam-khan",
+      instagram: "https://www.instagram.com/mohzzamkhan",
     },
   },
   {

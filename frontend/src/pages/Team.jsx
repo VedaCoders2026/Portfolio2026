@@ -2,6 +2,7 @@ import Arjun from "../TeamImg/Arjun.jpg";
 import Aman from "../TeamImg/Aman.jpg";
 import Riken from "../TeamImg/Riken.jpg";
 import Dilip from "../TeamImg/Dilip.png";
+import Moh from "../TeamImg/Mohzzam.png";
 import { Linkedin, Github, Instagram } from "lucide-react";
 
 const TEAM = [
@@ -53,7 +54,7 @@ const TEAM = [
     name: "Mohzzam Khan",
     role: "Equity Partner",
     subRole: "Head of Brand & Social Media",
-    img: "/images/portimg.png",
+    img: Moh,
     socials: {
       linkedin: "",
       github: "https://github.com/Mohzzam-khan",

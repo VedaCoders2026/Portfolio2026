@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Form from "../ProjectForm/Form"; 
+import MobileAppImage from "../TeamImg/services/Mobile.jpg";
 
 const SoftwareDevPage = () => {
   const [showModal, setShowModal] = useState(false);
@@ -38,7 +39,7 @@ const SoftwareDevPage = () => {
           {/* Hero Image */}
           <div className="md:w-1/2 flex justify-center">
             <img
-              src="https://images.unsplash.com/photo-1581091870620-5c2c7e3a7989?auto=format&fit=crop&w=600&q=80"
+              src={MobileAppImage}
               alt="Software Development Preview"
               className="rounded-2xl shadow-2xl border border-gray-700 max-w-xs md:max-w-sm"
             />
@@ -67,21 +68,45 @@ const SoftwareDevPage = () => {
         </button>
       </section>
 
-     {/* Modal */}
-      {showModal && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-10 ">
-          <div className="bg-transparent rounded-3xl w-full max-w-5xl h-[80vh] overflow-auto relative shadow-2xl">
-            {/* Close Button */}
-            <button
-              onClick={() => setShowModal(false)}
-              className="absolute top-2 right-4 text-gray-400 hover:text-white text-3xl font-bold"
-            >
-              &times;
-            </button>
-            <Form />
-          </div>
+   {/* Modal */}
+{showModal && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
+    {/* Backdrop */}
+    <div
+      onClick={() => setShowModal(false)}
+      className="absolute inset-0 bg-black/70 backdrop-blur-sm"
+    />
+
+    {/* Modal Card */}
+    <div className="relative w-full max-w-4xl max-h-[90vh] overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900/90 to-gray-800/90 border border-gray-700 shadow-2xl">
+      
+      {/* Header */}
+      <div className="flex items-center justify-between px-6 py-4 border-b border-gray-700">
+        <div>
+          <h3 className="text-xl font-bold text-teal-400">
+            Start Your Software Development Project
+          </h3>
+          <p className="text-sm text-gray-400">
+            Tell us about your idea and we’ll get back to you
+          </p>
         </div>
-      )}
+
+        <button
+          onClick={() => setShowModal(false)}
+          className="text-gray-400 hover:text-white text-3xl leading-none"
+        >
+          &times;
+        </button>
+      </div>
+
+      {/* Body */}
+      <div className="p-6 overflow-y-auto max-h-[calc(90vh-80px)]">
+        <Form />
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 };

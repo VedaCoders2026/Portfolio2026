@@ -3,6 +3,7 @@ import Aman from "../TeamImg/Aman.jpg";
 import Riken from "../TeamImg/Riken.jpg";
 import Dilip from "../TeamImg/Dilip.png";
 import Moh from "../TeamImg/Mohzzam.png";
+import Yug from "../TeamImg/yug.jpeg";
 import { Linkedin, Github, Instagram } from "lucide-react";
 
 const TEAM = [
@@ -65,7 +66,7 @@ const TEAM = [
     name: "Yugal Guru",
     role: "Equity Partner",
     subRole: "Software Developer",
-    img: "/images/t4.jpg",
+    img: Yug,
     socials: {
       linkedin: "https://www.linkedin.com/in/yugal-guru",
       github: "https://github.com/yugal-guru",

@@ -68,7 +68,7 @@ const TEAM = [
     subRole: "Software Developer",
     img: Yug,
     socials: {
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/in/yugal-guru-19a552214?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
       github: "https://github.com/yugalguru0428-coder",
       instagram: "https://www.instagram.com/yugal_guru04?igsh=MW10N3g0MmFpaTk5bw==",
     },

@@ -57,7 +57,7 @@ const TEAM = [
     subRole: "Head of Brand & Social Media",
     img: Moh,
     socials: {
-      linkedin: "",
+      linkedin: "https://www.linkedin.com/me?trk=p_mwlite_feed-secondary_nav",
       github: "https://github.com/Mohzzam-khan",
       instagram: "https://www.instagram.com/mohzzamkhan",
     },
